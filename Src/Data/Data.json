@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Product 1",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  },
+  {
+    "name": "Product 2",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  },
+  {
+    "name": "Product 3",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  },
+  {
+    "name": "Product 4",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  },
+  {
+    "name": "Product 5",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  },
+  {
+    "name": "Product 6",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  },
+  {
+    "name": "Product 7",
+    "date": "Show date here",
+    "price": "Price and Weight",
+    "quantity": "Quantity",
+    "expiry": "Expiry Date or Bought Date"
+  }
+]

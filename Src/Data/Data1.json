@@ -1,0 +1,19 @@
+
+[
+    {
+      "name": "Product 1",
+      "date": "Show date here",
+      "price": "Price and Weight",
+      "quantity": "Quantity",
+      "expiry": "Expiry Date or Bought Date"
+    },
+  
+    {
+      "name": "Product 2",
+      "date": "Show date here",
+      "price": "Price and Weight",
+      "quantity": "Quantity",
+      "expiry": "Expiry Date or Bought Date"
+    }
+  ]
+  
