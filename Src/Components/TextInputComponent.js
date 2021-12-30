@@ -7,11 +7,15 @@ import {
   TouchableOpacity,
   Modal,
 } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 const TextInputComponent = (props) => {
-  const { onChangeNumber, number, placeholder, Touchable } = props;
+  const { onChangeNumber, number, placeholder, Touchable, datepicker } = props;
   const [modalVisible, setModalVisible] = useState(false);
   const [quantity, setQuantity] = useState("");
+  const [show, setShow] = React.useState(Platform.OS === "ios");
+  const [selected, setSelected] = useState(false);
+  const [dateselected, setDateselected] = useState(false);
   function onchangetext(text) {
     if (quantity === "grams") {
       onChangeNumber(text + "-grams");
@@ -19,14 +23,23 @@ const TextInputComponent = (props) => {
       onChangeNumber(text + "-liters");
     }
   }
+  const onChange = React.useCallback((event, selectedDate) => {
+    console.log(selectedDate);
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === "ios");
+    onChangeNumber(currentDate);
+    console.log(onChangeNumber);
+    console.log(number);
+  });
   return (
     <>
       <View style={styles.container}>
         <View style={styles.centeredView}>
           <Modal
-            animationType='slide'
+            animationType="slide"
             transparent={true}
-            visible={modalVisible}>
+            visible={modalVisible}
+          >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
                 <Text style={{ alignSelf: "center" }}>Quantity</Text>
@@ -44,14 +57,16 @@ const TextInputComponent = (props) => {
                     backgroundColor: "grey",
                     opacity: 0.6,
                     left: 15,
-                  }}></View>
+                  }}
+                ></View>
                 <View
                   style={{
                     flexDirection: "row",
                     width: "100%",
                     justifyContent: "space-between",
                     marginTop: 20,
-                  }}>
+                  }}
+                >
                   <TouchableOpacity
                     disabled={quantity === "grams" ? true : false}
                     onPress={() => setQuantity("grams")}
@@ -65,11 +80,13 @@ const TextInputComponent = (props) => {
                       justifyContent: "center",
                       alignItems: "center",
                       left: 15,
-                    }}>
+                    }}
+                  >
                     <Text
                       style={{
                         color: quantity === "grams" ? "white" : "black",
-                      }}>
+                      }}
+                    >
                       Grams
                     </Text>
                   </TouchableOpacity>
@@ -86,11 +103,13 @@ const TextInputComponent = (props) => {
                       justifyContent: "center",
                       alignItems: "center",
                       right: 15,
-                    }}>
+                    }}
+                  >
                     <Text
                       style={{
                         color: quantity === "liters" ? "white" : "black",
-                      }}>
+                      }}
+                    >
                       Liters
                     </Text>
                   </TouchableOpacity>
@@ -108,18 +127,49 @@ const TextInputComponent = (props) => {
                     backgroundColor: "#669934",
                     marginTop: 15,
                     marginLeft: 15,
-                  }}>
+                  }}
+                >
                   <Text style={{ color: "white" }}>Save</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Modal>
         </View>
-        {Touchable ? (
+        {show ? (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={number}
+            // mode={mode}
+            is24Hour={true}
+            // display="default"
+            onChange={onChange}
+          />
+        ) : null}
+        {datepicker ? (
           <TouchableOpacity
-            onPress={() => setModalVisible(true)}
-            style={{ width: "100%", height: "90%", justifyContent: "center" }}>
-            {modalVisible ? (
+            onPress={() => {
+              setDateselected(true), setShow(true);
+            }}
+            style={{ width: "100%", height: "90%", justifyContent: "center" }}
+          >
+            {dateselected ? (
+              <Text style={{ marginLeft: 18, color: "grey", opacity: 0.7 }}>
+                {number.toDateString()}
+              </Text>
+            ) : (
+              <Text style={{ marginLeft: 18, color: "grey", opacity: 0.7 }}>
+                {placeholder}
+              </Text>
+            )}
+          </TouchableOpacity>
+        ) : Touchable ? (
+          <TouchableOpacity
+            onPress={() => {
+              setSelected(true), setModalVisible(true);
+            }}
+            style={{ width: "100%", height: "90%", justifyContent: "center" }}
+          >
+            {!selected ? (
               <Text style={{ marginLeft: 18, color: "grey", opacity: 0.7 }}>
                 Type in
               </Text>

@@ -18,6 +18,7 @@ export default function AddFood() {
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [broughtDate, setBroughtDate] = useState("");
+  const [date, setDate] = React.useState(new Date());
   return (
     <View style={styles.container}>
       {/* starting header of screen */}
@@ -138,9 +139,10 @@ export default function AddFood() {
             Expiry Date
           </Text>
           <TextInputComponent
-            number={expiryDate}
-            onChangeNumber={setExpiryDate}
+            number={date}
+            onChangeNumber={setDate}
             placeholder={"Choose Date"}
+            datepicker={true}
           />
 
           <Text
