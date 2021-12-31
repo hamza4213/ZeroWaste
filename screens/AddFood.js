@@ -17,7 +17,7 @@ export default function AddFood() {
   const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
-  const [broughtDate, setBroughtDate] = useState("");
+  const [broughtDate, setBroughtDate] = useState(new Date());
   const [date, setDate] = React.useState(new Date());
   return (
     <View style={styles.container}>
@@ -159,27 +159,28 @@ export default function AddFood() {
             number={broughtDate}
             onChangeNumber={setBroughtDate}
             placeholder={"Choose Date"}
+            datepicker={true}
           />
         </View>
 
         {/* button onClick add items to food list */}
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 22,
-          }}
-        >
-          <Button
-            text={"+ Add food"}
-            width="100%"
-            backgroundColor={Colorstyles.primaryColor}
-            borderColor={Colorstyles.primaryColor}
-            textclr={"white"}
-            // onPress={}
-          />
-        </View>
       </ScrollView>
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          // marginTop: 22,
+        }}
+      >
+        <Button
+          text={"+ Add food"}
+          width="100%"
+          backgroundColor={Colorstyles.primaryColor}
+          borderColor={Colorstyles.primaryColor}
+          textclr={"white"}
+          // onPress={}
+        />
+      </View>
     </View>
   );
 }

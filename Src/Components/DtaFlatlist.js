@@ -11,11 +11,17 @@ const DtaFlatlist = (props) => {
             height: "100%",
             backgroundColor: Colorstyles.itemcolor,
             borderRadius: 15,
-            bottom:8
+            bottom: 8,
           }}
         ></View>
-        <View style={{ width: "60%", height: "95%", }}>
-          <Text style={{ color: Colorstyles.textColor, fontWeight: "bold", fontSize: 20 }}>
+        <View style={{ width: "60%", height: "95%" }}>
+          <Text
+            style={{
+              color: Colorstyles.textColor,
+              fontWeight: "bold",
+              fontSize: 20,
+            }}
+          >
             {item.name}
           </Text>
           <Text style={styles.Text}>{item.quantity}</Text>
