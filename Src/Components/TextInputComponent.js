@@ -41,7 +41,9 @@ const TextInputComponent = (props) => {
             visible={modalVisible}
           >
             <TouchableOpacity
-              onPress={() => setModalVisible(false)}
+              onPress={() => {
+                setSelected(false), setModalVisible(false);
+              }}
               style={styles.centeredView}
             >
               <View style={styles.modalView}>
