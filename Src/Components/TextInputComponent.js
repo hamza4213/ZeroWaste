@@ -40,7 +40,10 @@ const TextInputComponent = (props) => {
             transparent={true}
             visible={modalVisible}
           >
-            <View style={styles.centeredView}>
+            <TouchableOpacity
+              onPress={() => setModalVisible(false)}
+              style={styles.centeredView}
+            >
               <View style={styles.modalView}>
                 <Text style={{ alignSelf: "center" }}>Quantity</Text>
                 <TextInput
@@ -132,7 +135,7 @@ const TextInputComponent = (props) => {
                   <Text style={{ color: "white" }}>Save</Text>
                 </TouchableOpacity>
               </View>
-            </View>
+            </TouchableOpacity>
           </Modal>
         </View>
         {show ? (
