@@ -10,26 +10,22 @@ import {
 import { EvilIcons } from "@expo/vector-icons";
 import Colorstyles from "../Colors/Colorstyles";
 const Header = (props) => {
-  const{selected,setSelected}=props
-  const Data = [
-    "All",
-    "Freezer",
-    "Fridge",
-    "Pantry",
-  ];
+  const { selected, setSelected } = props;
+  const Data = ["All", "Freezer", "Fridge", "Pantry"];
   const Item = ({ title }) => (
     <View>
       <Text
         style={{
           color: selected === title ? "green" : Colorstyles.flatlistColor,
           marginHorizontal: 23,
+          textDecorationLine: selected === title ? "underline" : undefined,
         }}
       >
         {title}
       </Text>
       <View
         style={{
-          width: "60%",
+          // width: "60%",
           alignSelf: "center",
           height: 2,
           backgroundColor: selected === title ? "green" : "whitef",
@@ -48,13 +44,12 @@ const Header = (props) => {
   );
   return (
     <View style={{ height: 80, width: "100%", backgroundColor: "white" }}>
-      
       <View
         style={{
           width: "94%",
           height: 40,
           borderWidth: 1,
-          borderColor:Colorstyles.flatlistColor,
+          borderColor: Colorstyles.flatlistColor,
           margin: 10,
           padding: 8,
           justifyContent: "space-between",
@@ -73,7 +68,7 @@ const Header = (props) => {
       <View
         style={{
           flexDirection: "row",
-          marginLeft:15
+          marginLeft: 15,
         }}
       >
         <FlatList
