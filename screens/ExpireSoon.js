@@ -5,14 +5,14 @@ import Colorstyles from '../Src/Colors/Colorstyles'
 import DtaFlatlist from '../Src/Components/DtaFlatlist'
 import Button from '../Src/Components/Button'
 import Data from '../Src/Data/Data.json'
+import { SafeAreaView } from 'react-native-safe-area-context'
 export default function ExpireSoon() {
     return (
         <View style={styles.container}>
-            
+            <SafeAreaView>
+
             {/* starting header of screen */}
             <View style={{
-                height:70,
-                marginTop:25,
                 backgroundColor:"#fff"
             }}>
                 <Header1/>
@@ -33,12 +33,14 @@ export default function ExpireSoon() {
             }}>
             <Button
             text={"+ Add food"}
+            width="100%"
             backgroundColor={Colorstyles.primaryColor}
             borderColor={Colorstyles.primaryColor}
             textclr={"white"}
             // onPress={}
             />
             </View>
+            </SafeAreaView>
         </View>
     )
 }

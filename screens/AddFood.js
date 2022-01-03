@@ -11,6 +11,7 @@ import Header1 from "../Src/Components/Header1";
 import Colorstyles from "../Src/Colors/Colorstyles";
 import TextInputComponent from "../Src/Components/TextInputComponent";
 import Button from "../Src/Components/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function AddFood() {
   //set states for textInputs
   const [category, setCategory] = useState("");
@@ -21,10 +22,10 @@ export default function AddFood() {
   const [date, setDate] = React.useState(new Date());
   return (
     <View style={styles.container}>
-      {/* starting header of screen */}
+      <SafeAreaView>      
+        {/* starting header of screen */}
       <View
         style={{
-          marginTop: 20,
           backgroundColor: "#fff",
         }}
       >
@@ -181,6 +182,7 @@ export default function AddFood() {
           // onPress={}
         />
       </View>
+      </SafeAreaView>
     </View>
   );
 }
