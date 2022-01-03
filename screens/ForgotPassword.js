@@ -4,11 +4,12 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import TextInputComponent from '../Src/Components/TextInputComponent'
 import Button from '../Src/Components/Button'
 import Colorstyles from '../Src/Colors/Colorstyles'
+import { SafeAreaView } from 'react-native-safe-area-context'
 export default function ForgotPassword({navigation}) {
     const [setPassword, setNewPasword] = useState("")
     return (
         <View style={styles.container}>
-            
+            <SafeAreaView>
             <View style={{
                 height:35,
                 width:80,
@@ -76,7 +77,7 @@ export default function ForgotPassword({navigation}) {
             onPress={() => navigation.navigate('SignIn')}
             />
             </View>
-            
+            </SafeAreaView>
         </View>
     )
 }

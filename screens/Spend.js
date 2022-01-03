@@ -3,13 +3,12 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import Colorstyles from '../Src/Colors/Colorstyles'
 import Header1 from '../Src/Components/Header1'
 import Button from '../Src/Components/Button'
+import { SafeAreaView } from 'react-native-safe-area-context'
 export default function Spend({navigation}) {
     return (
         <View style={styles.container}>
-            
+            <SafeAreaView>
             <View style={{
-                height:70,
-                marginTop:25,
                 backgroundColor:"#fff"
             }}>
                 <Header1/>
@@ -44,6 +43,7 @@ export default function Spend({navigation}) {
             // onPress={}
             />
             </View>
+            </SafeAreaView>
         </View>
     )
 }

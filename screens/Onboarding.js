@@ -15,7 +15,7 @@ export default function Onboarding({ navigation }) {
         activeDotStyle={{
           width: "12%",
           height: "100%",
-          backgroundColor: "#0A7900",
+          backgroundColor: Colorstyles.primaryColor,
           borderRadius: 4,
           marginLeft: 3,
           marginRight: 3,

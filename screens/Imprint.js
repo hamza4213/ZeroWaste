@@ -1,14 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import Colorstyles from '../Src/Colors/Colorstyles'
 import Header1 from '../Src/Components/Header1'
 export default function Imprint() {
     return (
         <View style={styles.container}>
-            
+            <SafeAreaView>
             <View style={{
-                height:70,
-                marginTop:25,
                 backgroundColor:"#fff"
             }}>
                 <Header1/>
@@ -25,6 +24,7 @@ export default function Imprint() {
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                     </Text>
             </View>
+            </SafeAreaView>
         </View>
     )
 }

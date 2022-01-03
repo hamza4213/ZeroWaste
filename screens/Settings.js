@@ -1,14 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import Colorstyles from '../Src/Colors/Colorstyles'
 import Header1 from '../Src/Components/Header1'
 export default function Settings({navigation}) {
     return (
         <View style={styles.container}>
-            
+            <SafeAreaView>
             <View style={{
-                height:70,
-                marginTop:25,
                 backgroundColor:"#fff"
             }}>
                 <Header1/>
@@ -59,6 +58,7 @@ export default function Settings({navigation}) {
                     <Text style={{color:Colorstyles.textColor}}>Log out</Text>
                 </TouchableOpacity>
             </View>
+            </SafeAreaView>
         </View>
     )
 }

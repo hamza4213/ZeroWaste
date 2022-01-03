@@ -95,7 +95,6 @@ export default function HomeScreen({ navigation }) {
           style={{
             justifyContent: "center",
             alignItems: "center",
-            // marginTop: 35,
             bottom: 0,
             width: "100%",
             position: "absolute",
@@ -117,7 +116,6 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor:Colorstyles.backgroundColor
     backgroundColor: "#fff",
   },
 });

@@ -37,7 +37,6 @@ export default function AddFood() {
           height: 60,
           marginTop: 15,
           alignItems: "center",
-          // backgroundColor:"blue"
         }}
       >
         {/* barcode scanner */}
@@ -170,7 +169,6 @@ export default function AddFood() {
         style={{
           justifyContent: "center",
           alignItems: "center",
-          // marginTop: 22,
         }}
       >
         <Button

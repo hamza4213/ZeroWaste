@@ -4,6 +4,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import Button from '../Src/Components/Button';
 import TextInputComponent from '../Src/Components/TextInputComponent';
 import Colorstyles from '../Src/Colors/Colorstyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 export default function SignIn({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,6 +12,7 @@ export default function SignIn({navigation}) {
         <View style={styles.container}>
             
             {/* navigate back to welcome screen */}
+            <SafeAreaView>
             <View style={{
                 height:35,
                 width:80,
@@ -106,6 +108,7 @@ export default function SignIn({navigation}) {
                 </TouchableOpacity>
             </View>
             </ScrollView>
+            </SafeAreaView>
         </View>
     )
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "35625101857",
+    "project_id": "foodapp-6c700",
+    "storage_bucket": "foodapp-6c700.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35625101857:android:c39651abbf5181b69c9160",
+        "android_client_info": {
+          "package_name": "com.zerowaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35625101857-g6g1tn4p03mm38i7dmn14qa5k3j3v2b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOU2k4qTZ-nTGXXmqvMCsxVf9rr556qlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35625101857-g6g1tn4p03mm38i7dmn14qa5k3j3v2b4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
