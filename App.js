@@ -45,11 +45,7 @@ export default function App() {
         <Stack.Screen name="ExpireSoon" component={ExpireSoon} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Imprint" component={Imprint} />
-        {/* <Stack.Screen name="Header1" component={Header1}/>
-      <Stack.Screen name="AddMoreFoodFlatList" component={AddMoreFoodFlatList}/> */}
       </Stack.Navigator>
     </NavigationContainer>
-
-    // <Onboarding/>
   );
 }

@@ -5,9 +5,20 @@ import Button from '../Src/Components/Button';
 import TextInputComponent from '../Src/Components/TextInputComponent';
 import Colorstyles from '../Src/Colors/Colorstyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { auth } from '../Firebase';
 export default function SignIn({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleSignIn = () => {
+        auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user
+            console.log(user,email)
+        })
+        .catch(error => alert(error.message))
+    }
     return (
         <View style={styles.container}>
             
@@ -90,7 +101,7 @@ export default function SignIn({navigation}) {
             backgroundColor={Colorstyles.primaryColor}
             borderColor={Colorstyles.primaryColor}
             textclr={"white"}
-            onPress={() => navigation.navigate('HomeScreen')}
+            onPress={handleSignIn}
             />
             </View>
 
