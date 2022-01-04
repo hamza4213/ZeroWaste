@@ -3,7 +3,17 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Colorstyles from '../Src/Colors/Colorstyles'
 import Header1 from '../Src/Components/Header1'
+import { auth } from '../Firebase'
 export default function Settings({navigation}) {
+
+    const handleSignOut = () => {
+        auth 
+        .signOut()
+        .then( () => {
+            navigation.replace("SignIn")
+        })
+        .catch(error => alert(error.message))
+    }
     return (
         <View style={styles.container}>
             <SafeAreaView>
@@ -54,7 +64,7 @@ export default function Settings({navigation}) {
                 marginLeft:15,
                 marginTop:15
             }}>
-                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                <TouchableOpacity onPress={handleSignOut}>
                     <Text style={{color:Colorstyles.textColor}}>Log out</Text>
                 </TouchableOpacity>
             </View>

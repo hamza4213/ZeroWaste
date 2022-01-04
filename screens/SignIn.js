@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import Button from '../Src/Components/Button';
@@ -6,16 +6,19 @@ import TextInputComponent from '../Src/Components/TextInputComponent';
 import Colorstyles from '../Src/Colors/Colorstyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { auth } from '../Firebase';
-export default function SignIn({navigation}) {
+import { useNavigation } from '@react-navigation/native';
+export default function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigation = useNavigation()
 
     const handleSignIn = () => {
         auth
-        .createUserWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(email, password)
         .then(userCredentials => {
             const user = userCredentials.user
-            console.log(user,email)
+            console.log("Logged In With :",user,email)
+            navigation.navigate("HomeScreen")
         })
         .catch(error => alert(error.message))
     }
