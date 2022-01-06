@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import {
   StyleSheet,
   Text,
@@ -12,14 +12,66 @@ import Colorstyles from "../Src/Colors/Colorstyles";
 import TextInputComponent from "../Src/Components/TextInputComponent";
 import Button from "../Src/Components/Button";
 import { SafeAreaView } from "react-native-safe-area-context";
-export default function AddFood() {
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export default function AddFood({navigation}) {
   //set states for textInputs
   const [category, setCategory] = useState("");
   const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
+  const [expiryDate, setExpiryDate] = useState(new Date());
   const [broughtDate, setBroughtDate] = useState(new Date());
   const [date, setDate] = React.useState(new Date());
+
+
+   const addFoodHandler=async () => {
+     
+    try{
+      
+      let Data=[]
+      let prevData = JSON.parse(await AsyncStorage.getItem("formData"));
+      
+      if(prevData!==null){
+         Data = [
+           ...prevData,
+           {
+             category: category,
+             name: productName,
+             quantity: quantity,
+             expiry: expiryDate,
+             broughtDate: broughtDate,
+             date: date,
+           },
+         ];
+        await AsyncStorage.setItem("formData",JSON.stringify(Data));
+        navigation.navigate("HomeScreen")
+      }else{
+        Data=[];
+         Data = JSON.stringify([
+           {
+             category: category,
+             name: productName,
+             quantity: quantity,
+             expiry: expiryDate,
+             broughtDate: broughtDate,
+             date: date,
+           },
+         ]);
+         await AsyncStorage.setItem("formData", Data);
+         navigation.navigate("HomeScreen");
+      }
+      
+ 
+    }catch(error){
+      
+      console.log("could not save form data locally",error);
+    }
+  }
+    
+
+ 
+
+
   return (
     <View style={styles.container}>
       <SafeAreaView>      
@@ -177,7 +229,7 @@ export default function AddFood() {
           backgroundColor={Colorstyles.primaryColor}
           borderColor={Colorstyles.primaryColor}
           textclr={"white"}
-          // onPress={}
+          onPress={addFoodHandler}
         />
       </View>
       </SafeAreaView>

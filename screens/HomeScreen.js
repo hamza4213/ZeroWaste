@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { StyleSheet, View, ScrollView, Text } from "react-native";
 import Colorstyles from "../Src/Colors/Colorstyles";
 import Header1 from "../Src/Components/Header1";
@@ -8,8 +8,21 @@ import Button from "../Src/Components/Button";
 import Data from "../Src/Data/Data.json";
 import Data1 from "../Src/Data/Data1.json";
 import Data2 from "../Src/Data/Data2.json";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 export default function HomeScreen({ navigation }) {
   const [selected, setSelected] = React.useState("");
+  let tst 
+  
+  useEffect(async () => {
+    try{
+     
+      tst=await AsyncStorage.getItem('formData')
+     console.log(tst)
+    }catch(e){
+      console.log("Failed to get local data")
+    }
+  },[])
 
   return (
     <View style={styles.container}>
@@ -18,7 +31,7 @@ export default function HomeScreen({ navigation }) {
           marginTop: 25,
         }}
       >
-        <Header1 navigationTo="Spend" navigationTo="ExpireSoon" />
+        <Header1 navigationTo="Spend" /> 
       </View>
 
       {/* will check the state  */}
@@ -74,7 +87,7 @@ export default function HomeScreen({ navigation }) {
             <DtaFlatlist
               Data={
                 selected === "All"
-                  ? Data
+                  ? tst
                   : selected === "Freezer"
                   ? Data1
                   : selected === "Fridge"
